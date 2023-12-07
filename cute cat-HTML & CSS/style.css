@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* remember to write this code always its better and help to not explode! */
+}
+img{
+    width: 380px;
+    height: 245px;
+}
+.p {
+    color: palevioletred;
+    border: 1px solid blueviolet;
+    border-radius: 7px;
+    width: 50%;
+    /* اگه میخوایم این اندازه همون تکسی باشه که نوشتیم
+     نمیشه چون خود پاراگراف بلاک هستش 
+     و نمیشه پس از اندازه عرض استفاده میکنیم */
+  }
+  button{
+    color: goldenrod;
+    background-color: white;
+    border: 2px solid yellowgreen;
+    border-radius: 25px;
+  }
+  /* .bodytable{
+    direction: rtl; 
+ چون دیفالت انگلیسی ما فارسی میخوایم
+  بنویسیم پس از راست به چپ میکنیم 
+  } */
+.a1{
+    color: brown;
+}
+
+.a2{
+    color: royalblue;
+}
+
+.s{
+    background-color: beige;
+    display: flex;
+    width: 25%;
+}
+.s div{
+ border: 2px solid green;
+}
+.table tr:first-child{
+    background-color: aquamarine;
+}
+.bodytable{
+  /* border: 1px solid green; */
+  border-collapse: collapse;
+}
+.thead{
+    border: 1px solid rgb(128, 0, 102);
+}
+th{
+    border: 1px solid green;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+/* home practices
+
+.a1.a2
+
+
+
+.a1 .a2
+
+
+.a1>.a2
+
+.a1+.a2
+
+.a1~.a2 */

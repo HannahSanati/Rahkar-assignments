@@ -1,0 +1,8 @@
+<div>
+  <ol>
+    <li [ngClass]="{'list-item-done': item.done}" *ngFor="let item of textList; let i = index">
+      {{ item.title }} <button (click)="taskDone(i)">done</button
+      ><button (click)="taskRemove(i)">remove</button>
+    </li>
+  </ol>
+</div>

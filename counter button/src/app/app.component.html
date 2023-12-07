@@ -1,0 +1,8 @@
+<p>{{getName()}}</p>
+<app-navbar *ngIf="isShown"></app-navbar>
+<app-navbar (ghoti)="onHandleGhoti($event)"></app-navbar>
+<app-navbar [baste]="age" (ghoti)="onHandleGhoti($event)"></app-navbar>
+
+<!-- <input (focus)="onHandleFocus($event)"
+(input)="printEvent($event)"
+placeholder="type something..."> -->

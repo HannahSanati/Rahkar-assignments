@@ -1,0 +1,18 @@
+.table tr:first-child{
+    background-color: aquamarine;
+}
+.bodytable{
+  /* border: 1px solid green; */
+  border-collapse: collapse;
+}
+.thead{
+    border: 1px solid rgb(128, 0, 102);
+}
+th{
+    border: 1px solid green;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // for (var index = 0; index < 5; index++ ){
+    //   console.log(index);
+    // }
+  
+    // for (var index = 4; index < 5; index=index-2 ){
+    //   console.log(index);
+    // } it will causes a crash its infinite
+  //     let aa=8
+  //     for (var index = 4; index < 16; index=index+2 ){
+      
+  //       if(aa=index){
+  //         console.log("index")
+  //       }
+  //     }
+  // console.log("index1");
+  // for (var index = 0; index < 5; index++ ){
+  // if(aa=index){
+  //       console.log("index")
+  //     }
+  //     console.log("index1")
+  // }
+  
+  
+  
+  function getDayNum(daynum){
+   var day;
+   if(daynum==0){
+    day="sunday";
+   }else if(daynum=1){
+    day = "monday";
+   }else if(daynum=2){
+    day = "tuesday";
+   }else if(daynum=3){
+    day = "wednesday";
+   }else if(daynum=4){
+    day = " thursday";
+   }else if(daynum=5){
+    day = "friday";
+   }else if(daynum=6){
+    day = "saturday";
+   }
+  }
+  return day;
+  // break;
+  // default:day="day doesn't exist"+ daynum + "isn't a valid number";
+  document.write(getDayNum(0));
+  </script>
+</head>
+<body>
+  
+</body>
+
+</html>
