@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding:0 ;
+    box-sizing: border-box;
+ }
+// .wrapper{
+//  justify-content: center;
+// font-size: 50px;
+// font-family: 'Courier New', Courier, monospace;
+// font-weight: 500;
+// color: beige;
+// background: url("https://www.watchman.com/content/dam/watchman/dtp/why-watchman/2023/hero-greg-1900x500.jpg");
+// object-fit: contain;
+// width: 100%; 
+// height: 500px; 
+// }
+
+.container {
+    position: relative;
+    text-align: center;
+    color:lighten($color:  rgb(237, 162, 162), $amount: 15)
+  }
+  
+  .top-left {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 55px;
+    font-weight: 70px;
+    position: absolute;
+    top: 80px;
+    left: 25px;
+  }
+  

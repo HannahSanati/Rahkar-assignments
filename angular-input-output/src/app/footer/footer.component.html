@@ -1,0 +1,10 @@
+<form [formGroup]="profilForm">
+    <label for="firstName">firstName:</label>
+    <input type="text" formControlName="firstName" (keyup)="onHandleFirstName($event)">
+  
+    <label for="lastName">lastName:</label>
+    <input type="text" formControlName="lastName" (keyup)="onHandleLastName($event)"  >
+
+    <button type="submit">Submit</button>
+  </form>
+  
