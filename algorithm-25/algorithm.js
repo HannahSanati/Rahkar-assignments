@@ -129,6 +129,19 @@
 // 2 برنامه بنویسید که عدد های سه رقمی که رقم یکان آنها برابر با چهار باشد را نمایش دهد و همچنین مجموع این اعداد را
 // هم به صورت جداگانه چاپ نماید
 //تمرین 12:
+// function threeDigitNumbers(lowestNumber,largestumber) {
+//     var digit=0
+//     var sum=0
+//     for (let number = lowestNumber; number <= largestumber; number++) {
+//         digit=(number%10)
+//         if(digit==4){
+//             console.log("number: "+number);
+//             sum+=number
+//         }
+//     }
+//     console.log("sum: "+sum);
+// }
+// threeDigitNumbers(100,999)
 
 
 //3 یک عدد از ورودی گرفته و رقم های یکان و دهگان و صدگان آن عدد را نمایش دهید
@@ -174,25 +187,19 @@
 
 //6 اعداد چهار رقمی ای که با شرط معادله زیر برقرار باشند را چاپ کنید
 //تمرین 16:
+// let temp = [];
 // for (let a = 0; a>= 1000 && a < 10000; a++) {
-//   if (a%10000) {
-//     console.log("1:" + a%10000);
-//   }
-//   if (num % 1000) {
-//     console.log("2:" + num % 1000);
-//  }
-//  if (num % 100) {
-//     console.log("3:" + num % 100);
-//  }
-//  if (num % 10) {
-//     console.log("4:" + num % 10);
-//  }
+//  let numberString = number.toString();     
+// if (parseInt(numberString[0])+parseInt(numberString[3])===
+// parseInt(numberString[1])+parseInt(numberString[2])) {
+//    console.log(number);
+// } 
 // }
 
 //7 برنامه بنویسید که اعداد چهار رقمی که با شرط معدله زیر برقرار باشند را چاپ کند
-// تمرین 17:   nlkjfioshgidgndlhglishghngklfnx vmndx*****
-// function question17() {
-//     let result17=[]
+// تمرین 17:  
+
+//     let example=[]
 
 //     for(let num=1000; num<10000; num++) {
 //         let num2=num
@@ -207,37 +214,77 @@
 //         a=numToArray[1]*10+numToArray[0]
 //         if((a+b)*(a+b)==num) {
 //             // console.log(num);
-//             result17+=num + " " + "-"
+//             example+=num + " " + "-"
 //         }
-//     }
+
 
 //8 برنامه ای بنویسید که تمام اعداد اول سه رقمی )اعدادی که تنها دو مقسوم علیه دارند: 1 و خودشان( را چاپ کند 
 // تمرین 18:
-// for (let num = 0; num <= 999; num++) {
-//    if (num%1==0 && num%num++==0) {
-//        console.log(num);
-//    }
-// }  عدد فرد میده :)))))))))
+// function  a(num1,num2){
+// let w=0
+// for (let number =num1; number <=num2; number++) {
+//     for (let i = 2; i < number; i++) {
+//         if (number%i==0) {
+//             w=i
+//         }
+//     }
+//     if (w==0) {
+//         console.log("number: "+number);
+//     }
+//     else{
+//         w=0
+//     }
+// }
+// }
+// a(132,122)
 
 
 //9 برنامه بنویسید که تمام اعداد سه رقمی که عدد یکان و صدگان آنها اعداد اول باشیند را چاپ کند
 // تمرین 19:
+// function isPrime(number) { 
+//     if (number < 2) {
+//         return false;
+//     }
+//     for (let i = 2; i <= Math.sqrt(number); i++) {
+//         if (number % i == 0) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// for (let i = 100; i < 999; i++) {
+//     let Hundreds = Math.floor(i/100);
+//     let Ones = Math.floor(i%10);
+//     if (isPrime(Hundreds) && isPrime(Ones)) {
+//         console.log(i);
+//     }
+// }
    
 //0 برنامه بنویسید که تمام اعداد 1 تا 999 را بررسی کند و اعدادی را که مجموع مقسوم علیههایشان دقیقاً دو برابر خود آن
 // عدد است را چاپ کند
 // تمرین 20:
-// let b=0;
-// let a =[1,2,3,4,5,6,7,8,9];
-// console.log(a);
-// for (let index = 1; index <= 999 ; index++) {
-//     if (index%a){
-//      console.log( index%a);
+// function w(num1,num2){
+//     var sum
+//     for (let number = num1; number < num2; number++) {
+//         sum=0
+//         for (let index = 1; index <= number; index++) {
+//             if (number%index==0) {
+//                 sum+=index
+//             }
+//             if (number==index && number==sum/2) {
+//                 console.log("number: "+number);
+//             }
+//         }
+        
 //     }
 // }
+// w(199,342)
 
 //1 برنامه ای بنویسید که اعداد 10 تا 1500 را بررسی کند و در صورتی که مجموع مقسوم علیه های یک عدد برابر عدد
 // دیگری در این بازه باشد و بلعکس مجموع مقسوم علیه های آن عدد نیز برابر با عدد قبلی باشد 
 //تمرین 21:
+
 
 //2 برنامه بنویسید سه مقدار عددی از ورودی بگیرید )سال و ماه و روز( و تاریخ روز بعد را به صورت شمسی محاسبه کند
 //تمرین 22:
