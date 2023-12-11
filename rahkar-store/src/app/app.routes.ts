@@ -15,7 +15,8 @@ export const routes: Routes = [
       component: LoginComponent },
       {
         path: 'products',
-        component: ProductComponent,},
+        loadComponent: () => import ('./product/product.component').then((m)=> m.ProductComponent)
+      },
       {
         path: 'products/:id',
         component: ProductDetailsComponent,},
