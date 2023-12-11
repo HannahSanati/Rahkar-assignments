@@ -19,7 +19,8 @@ export const routes: Routes = [
       },
       {
         path: 'products/:id',
-        component: ProductDetailsComponent,},
+        loadComponent: () => import ('./product/product-details/product-details.component').then((m)=> m.ProductDetailsComponent)
+      },
       {
          path: 'profile',
        component: ProfileComponent },
