@@ -1,0 +1,71 @@
+<!-- game center -->
+<div class="main-container">
+  <div class="container game-container">
+    <div class="text-center">
+      <div>{{ gamers }}</div>
+      <h6>Dice for Player1</h6>
+      <button
+        type="button"
+        class="btn btn-outline-secondary Button"
+        (click)="onClick1()"
+      >
+        ROll
+      </button>
+      <img src="../assets/1.PNG" id="img1" class="dice" #dice/>
+      <div>{{ gamers.Second }}</div>
+      <h6>Dice for Player2</h6>
+      <button
+        type="button"
+        class="btn btn-outline-secondary Button"
+        (click)="onClick2()"
+      >
+        ROll
+      </button>
+      <img src="../assets/1.PNG" id="img2" class="dice" #dice/>
+    </div>
+  </div>
+</div>
+<!-- roll but two of them -->
+<div>
+  there is a another game which you can press the dice and it will roll two of
+  them
+</div>
+<button
+  type="button"
+  class="btn btn-outline-secondary Button"
+  (click)="onClick3()"
+>
+  ROll two of them
+</button>
+<!-- score of two players -->
+<div *ngFor="let items of gamers">
+  <div class="split left">
+    <div class="center">
+      <h2>{{ items.First }}</h2>
+      <h2>{{ score1 }}</h2>
+    </div>
+  </div>
+
+  <div class="split right">
+    <div class="center">
+      <h2>{{ items.Second }}</h2>
+      <h2>{{ score2 }}</h2>
+    </div>
+  </div>
+</div>
+<!-- set winner and loser -->
+<div *ngFor="let items of win">
+  <div class="split left">
+    <div class="centered">
+      <h2>winner:</h2>
+      <h2>{{ items.winnerName }}</h2>
+    </div>
+  </div>
+
+  <div class="split right">
+    <div class="centered">
+      <h2>losser:</h2>
+      <h2>{{ items.loserName }}</h2>
+    </div>
+  </div>
+</div>
