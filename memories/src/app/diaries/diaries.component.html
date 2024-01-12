@@ -1,0 +1,30 @@
+<div class="container bg-info border border-light rounded" style="margin-top: 15px; padding: 20px;">
+  <form [formGroup]="form">
+
+    <label for="diary">Diary</label>
+    <input type="text" class="form-control" id="diary" formControlName="diary">
+
+    <label for="date">Date</label>
+    <input type="date" class="form-control" id="date" formControlName="date">
+
+    <div class="text-center">
+      <button (click)="onClick()" type="button" class="btn btn-light">Submit</button>
+    </div>
+
+  </form>
+</div>
+<table class="table  table-bordered table-striped text-center" style="margin-bottom: 70px;">
+  <thead>
+    <tr>
+      <th>Diary</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody class="bg-warning">
+    <tr *ngFor="let i = index let item of Data ">
+      <td> {{ item.diary }} </td>
+      <td> {{ item.date }} </td>
+      <td> <button (click)="deletData(i)" class="btn btn-danger">Delete</button> </td>
+    </tr>
+  </tbody>
+</table>

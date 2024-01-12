@@ -12,9 +12,6 @@ import { FormsModule , ReactiveFormsModule , FormControl , FormGroup, FormBuilde
 })
 
 export class AppComponent {
-  title = 'tamrin-006';
-
-
   form!: FormGroup
   searchText = '';
 

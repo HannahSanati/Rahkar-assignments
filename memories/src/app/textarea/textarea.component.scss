@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.wrapper{
+    width: 100%;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    background-color: rgb(38, 240, 210);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    color: azure;
+    width: 90%;
+}
+.textContainer{
+    width: 85%;
+    height: 100%;
+}
+.button{
+    background-color: aquamarine;
+    border-radius: 5px;
+}
