@@ -9,20 +9,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      image:{
-        
-        type: Sequelize.STRING,
-        allowNull:false,
- 
-       
-       },
-       title:{
-         
-        type: Sequelize.STRING,
-        allowNull:true,
-        
-       
-       },
+      image: {
+        type: DataTypes.BLOB
+      },
+      img_name: {
+        type: DataTypes.STRING
+      },
+      description:{
+        type:DataTypes.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

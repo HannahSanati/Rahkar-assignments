@@ -5,7 +5,8 @@ exports.getTestData = async (req, res) => {
     try {
     let data=await Image.create({
         image: req.body.image,
-        title: req.body.title,
+        img_name: req.body.img_name,
+        description: req.body.description,
         // createdAt:new Date(),
         // updatedAt:new Date(),
 

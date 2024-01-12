@@ -6,19 +6,15 @@ const Image = sequelize.define(
   "Image",
   {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.BLOB
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    img_name: {
+      type: DataTypes.STRING
     },
+    description:{
+      type:DataTypes.STRING
+    }
   },
   {
     timestamps: true,

@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpEventType, HttpResponse } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpEventType,
+  HttpResponse,
+} from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FileUploadService } from '../app/services/file-upload.service';
@@ -9,7 +13,7 @@ import { FileUploadService } from '../app/services/file-upload.service';
   standalone: true,
   imports: [CommonModule, HttpClientModule],
   templateUrl: './insert-section.component.html',
-  styleUrl: './insert-section.component.scss'
+  styleUrl: './insert-section.component.scss',
 })
 export class InsertSectionComponent implements OnInit {
   selectedFiles?: FileList;
