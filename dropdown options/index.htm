@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <label for="category">category</label>
-    <select name="stuff">
-      <option class="dropdown-options">vegteable
-        <option>beans</option>
-      </option>
-      <option class="dropdown-options">meats</option>
-      <option>beaf</option>
-    </select>
+
+<div class="dropdown">
+  <a href="#" class="dropdown-item">Dropdown 1</a>
+  <div class="dropdown-content">
+    <a href="#" class="nested-dropdown-item"> Dropdown 1.1</a>
+    <div class="nested-dropdown">
+      <a href="#" class="nested-dropdown-item"> Dropdown 1.2</a>
+      <div class="nested-dropdown-content">
+        <a href="#" class="nested-dropdown-item"> Item 1.2.1</a>
+        <a href="#" class="nested-dropdown-item"> Item 1.2.2</a>
+      </div>
+    </div>
+    <a href="#" class="nested-dropdown-item">  1.3</a>
+  </div>
+</div>
+
+<div class="dropdown">
+  <a href="#" class="dropdown-item">Dropdown 2</a>
+  <div class="dropdown-content">
+    <a href="#" class="nested-dropdown-item"> Dropdown 2.1</a>
+    <a href="#" class="nested-dropdown-item"> Dropdown 2.2</a>
+    <a href="#" class="nested-dropdown-item"> Dropdown 2.3</a>
+  </div>
+</div>
+
 </body>
 </html>

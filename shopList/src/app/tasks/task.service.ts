@@ -14,6 +14,7 @@ export class TaskService {
   http = inject(HttpClient);
 
   createTask(task: ITaskRequest): Observable<any> {
-    return this.http.post(`${this.baseUrl}task`, task);
+    return this.http.post(`${this.baseUrl}create/`, {itemName:task});
   }
+
 }

@@ -9,8 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
-  @Input() getTodoText!: string;
-
+  @Input() set getTodoText(value: string){
+this._getTodotext = value;
+ if (this._getTodotext)
+      this.textList.push({ title: this._getTodotext, done: false });
+  
+  }
+   _getTodotext!: string;
   textList: any[] = [];
 
   ngOnChanges() {

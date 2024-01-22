@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Register routes
-app.use("/api/task", taskRoutes);
+app.use("/api/create", taskRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

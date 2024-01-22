@@ -17,10 +17,15 @@ app.post("/", (req, res) => {
   First = req.body.First;
   Second = req.body.Second;
 });
-app.get("/", (req, res) => {
-  res.json({ First, Second });
+app.get("/dice", (req, res) => {
+
+  res.json(rollDice());
 });
 
+
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
 app.listen(4000, () => {
   console.log("its working");
 });

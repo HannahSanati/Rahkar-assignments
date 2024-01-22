@@ -284,18 +284,139 @@
 //1 برنامه ای بنویسید که اعداد 10 تا 1500 را بررسی کند و در صورتی که مجموع مقسوم علیه های یک عدد برابر عدد
 // دیگری در این بازه باشد و بلعکس مجموع مقسوم علیه های آن عدد نیز برابر با عدد قبلی باشد 
 //تمرین 21:
+// function divisor(number) {
+//     let temp = 0;
+//    for (let i = 1; i <=number/2; i++) {
+//         if (number % i == 0) {
+//             temp +=i;
+//         }
+    
+//     } 
+//     return temp;
+// }
 
+// function sameDivisor() {
+//    for (let i = 10; i <= 1500; i++){
+//         let sumDivisorsA = divisor(i);
+//         let sumDivisorsSumA = divisor(sumDivisorsA);
+
+//         if (i === sumDivisorsSumA && sumDivisorsA !== i ) {
+//             console.log(i);
+//         }
+//     } 
+// }
+
+// sameDivisor();
 
 //2 برنامه بنویسید سه مقدار عددی از ورودی بگیرید )سال و ماه و روز( و تاریخ روز بعد را به صورت شمسی محاسبه کند
 //تمرین 22:
+// function date(year,month,day) {
+//     const d= new Date(year,month,day)
+//     if (d.getMonth()<7) {
+//         if (d.getDate()<31) {
+//             d.setDate(day+1)
+//         }
+//         else if (d.getDate()==31) {
+//             d.setDate('1')
+//             d.setMonth(month+1)
+//         }
+//     }
+//     else if (6<d.getMonth()<12) {
+//         if (d.getDate()<30) {
+//             d.setDate(day+1)
+//         }
+//         else if (d.getDate()==30) {
+//             d.setDate('1')
+//             d.setMonth(month+1)
+//         }
+    
+//     }
+//     else if (d.getMonth()==12) {
+//         if (d.getDate()<29) {
+//             d.setDate(day+1)
+//         }
+//         else if (d.getDate()==29) {
+//             d.setDate('1')
+//             d.setMonth(month-11)
+//         }
+//     }
+//     console.log(d.getFullYear()+"/"+d.getMonth()+"/"+d.getDate());
+// }
+// date(1403,9,30)
 
 //3 یک عدد بین 1 تا 365 از ورودی دریافت کند و تاریخ معدل امسال را به شمسی در خروجی نمایش دهد)فرض بر این
 // است که سال 365 روز دارد(
 //تمرین 23:
+// function date(day) {
+//     let month=1
+//     let date=1
+//     let d
+//     if (day<=186) {
+//         date=day%31
+//         for (let i = 0; i < 7; i++) {
+//             if (day/31<i) {
+//                 month=i-1
+//                    break
+//             }
 
+//         }
+
+//     }
+//     else if (186<day<=336) {
+//         date=(day-186)%30
+//         for (let i = 7; i < 12; i++) {
+//             if ((day-186)/30<i) {
+//                 month=i-1
+//                 break
+//             }
+
+//         }
+//     }
+//     else if (336<day<365) {
+//         date=(day-336)%29
+//         month='12'
+//     }
+//     d = new Date(1403,month,date)   
+//     console.log(d.getFullYear(),d.getMonth(),d.getDate());
+// }
+// date(155)
 //4 برنامه ای بنویسید که یک رشته از ورودی بگیرد و معکوس آن را چاپ کند
 //تمرین 24:
+// function reverseString(string) {
+//     let reversedString = '';
 
+//     for (let i = string.length - 1; i >= 0; i--) {
+//         reversedString += string[i];
+//     }
+
+//     return reversedString;
+// }
+// console.log(reverseString('hi'));
 //5 برنامه ای بنویسید که تعدادی عدد از کاربر بگیرید و در صورت داشتن اعداد تکراری تعداد اعداد تکراری و خود اعداد را
 // نمایش دهد
 // تمرین 25:
+// function repeatednNumber(numbers) {
+//     let countMap = {};
+
+//        for (let i = 0; i < numbers.length; i++) {
+//             for (let j = 0; j < i; j++) {
+//                 if (numbers[j] == numbers[i]) {
+                
+//                     if (countMap[numbers[i]]) {
+//                         countMap[numbers[i]]++;
+//                     } else {
+//                         countMap[numbers[i]] = 2; 
+//                     }
+//                     break; 
+            
+//                 }
+                
+//             }
+//         }
+//         for (let number in countMap) {
+//             console.log(number+ ": " +countMap[number]);
+//         }
+
+//     }
+    
+//    repeatednNumber([1, 2, 3, 7, 5, 1, 7, 8, 9, 7]);

@@ -22,18 +22,20 @@ export class AppComponent {
       mobile : new FormControl(''),
       email : new FormControl('')
     })
+   
   }
+  Users : any[] = []
+  serachedUser : any[] = []
 
-  Data : any[] = []
 
   onClick() {
-    // console.log(this.form.value);
-    this.Data.push({
+    this.Users.push({
       fname : this.form.value.firstname ,
       lname : this.form.value.lastname ,
       mobile : this.form.value.mobile ,
       email : this.form.value.email
     })
+    this.serachedUser = this.Users
     this.form.setValue ({
       firstname : '',
       lastname : '',
@@ -43,6 +45,19 @@ export class AppComponent {
   }
 
   deletData(index : number) {
-    this.Data.splice(index,1)
+    this.Users.splice(index,1)
+  }
+
+  doSearch() {
+   this.Users = this.Users.filter(item => item.fname === this.searchText)
+  }
+
+  searchChange(event: string) {
+    if(event){
+      this.serachedUser = this.Users.filter(item => item.fname === this.searchText)
+    } else {
+      this.serachedUser = this.Users
+    }
   }
 }
+
