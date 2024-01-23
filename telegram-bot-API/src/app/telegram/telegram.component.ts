@@ -1,91 +1,99 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { TelegramService } from '../telegram.service';
 import {
   FormArray,
   FormBuilder,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { TelegramService } from '../telegram.service';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-telegram',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, ReactiveFormsModule],
+  imports: [FormsModule, CommonModule, HttpClientModule, ReactiveFormsModule],
   templateUrl: './telegram.component.html',
   styleUrl: './telegram.component.scss',
 })
 export class TelegramComponent {
-  constructor(
-    private telegramService: TelegramService,
-    private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
-    this.addItems();
-  }
-  chat_id: number[] = [518311870, 2343567];
-  errorMessage: string | null = null;
-
+  user_id: number[] = [268569464];
+  TelegramService = inject(TelegramService);
+  formBuilder = inject(FormBuilder);
   form: FormGroup = this.formBuilder.group({
     text: ['', Validators.required],
-    photo: ['', Validators.required],
+    photourl: ['', Validators.required],
     caption: ['', Validators.required],
-    button: [],
+    tedadTosater: ['', Validators.required],
     items: this.formBuilder.array([]),
   });
-
+  ngOnInit(): void {
+    this.add();
+  }
   get items(): FormArray {
     return this.form.get('items') as FormArray;
   }
-
-  addItems() {
+  onclick() {
+    this.TelegramService.SendMessage(
+      this.user_id[0],
+      this.form.value.text,
+      this.iconTelegram(this.items.value)
+    ).subscribe((data) => {});
+    this.TelegramService.sendPhoto(
+      this.user_id[0],
+      this.form.value.photourl,
+      this.form.value.caption
+    ).subscribe((data) => {});
+  }
+  add() {
     this.items.push(
       this.formBuilder.group({
         name: [''],
-        mobile:['']
       })
     );
   }
-
-  removeAt(index: number) {
-    this.items.removeAt(index);
+  remove(event: any) {
+    this.items.removeAt(event);
   }
+  iconTelegram(list: any[]) {
+    let z = 0;
+    let telegramicon: any = [];
+    let telegramButton: any = [];
+    let tel: any = [];
+    if (this.form.value.tedadTosater > 1) {
+      for (
+        let i = 1;
+        i <= Math.floor(list.length / this.form.value.tedadTosater);
+        i++
+      ) {
+        for (let k = 0; k < this.form.value.tedadTosater; k++) {
+          telegramicon.push({
+            text: list[z].name,
+            callback_data: list[z].name,
+          });
+          z = z + 1;
+        }
 
-  convert(list: any[]) {
-    var convertible: any = [];
-    let numberOfButten = this.form.value.button;
-
-    for (let i = 0; i < list.length; i += numberOfButten) {
-      const rowButtons = list.slice(i, i + numberOfButten).map((element) => ({
-        text: element.name,
-        callback_data: element.name,
-      }));
-
-      convertible.push(rowButtons);
+        telegramButton.push(telegramicon);
+      }
+    } else if (this.form.value.tedadTosater == 1) {
+      list.forEach((element) => {
+        z = z + 1;
+        telegramButton.push([
+          { text: element.name, callback_data: element.name },
+        ]);
+      });
     }
-    return convertible;
-  }
 
-  submit() {
-    this.errorMessage = null;
-    if (this.form.valid) {
-      this.telegramService.sendMessage(
-          this.chat_id[0],
-          this.form.get('text')?.value,
-          this.convertible(this.items.value)
-        ).subscribe((data) => {});
-      this.telegramService.sendPhoto(
-          this.chat_id[0],
-          this.form.get('photo')?.value,
-          this.form.get('caption')?.value
-        ).subscribe((data) => {});
-    } else {
-      this.errorMessage = 'text is empty';
+    while (z != list.length) {
+      tel.push({ text: list[z].name, callback_data: list[z].name });
+      z = z + 1;
     }
+    if (tel.length > 0) {
+      telegramButton.push(tel);
+    }
+    return telegramButton;
   }
-  convertible(value: any): any {
-    throw new Error('Method not implemented.');
-  }
-};
+}

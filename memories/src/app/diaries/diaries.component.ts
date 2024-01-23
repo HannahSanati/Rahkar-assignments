@@ -1,40 +1,51 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { DiaryService } from '../diary.service';
 
 @Component({
-  selector: 'app-diaries',
+  selector: 'app-sabt',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './diaries.component.html',
-  styleUrl: './diaries.component.scss'
+  styleUrl: './diaries.component.scss',
 })
 export class DiariesComponent {
-  form!: FormGroup
-  searchText = '';
-
-  constructor(private fb:FormBuilder) {
-    this.form = fb.group ({
-      diary : new FormControl(''),
-      date : new FormControl('')
-    })
+  fb = inject(FormBuilder);
+  public DiaryService = inject(DiaryService);
+  router = inject(Router);
+  form: FormGroup = this.fb.group({
+    title: ['', Validators.required],
+    id: ['', Validators.required],
+  });
+  ngOnInit(): void {
+    if (this.DiaryService.display == true) {
+      this.form.get('title')?.setValue(this.DiaryService.update[0].title);
+    }
   }
-
-  Data : any[] = []
-
-  onClick() {
-    this.Data.push({
-      diary : this.form.value.diary ,
-      date : this.form.value.date 
-    })
-    this.form.setValue ({
-      diary : '',
-      date : ''
-    })
+  onclick() {
+    console.log(this.form.value);
+    this.DiaryService.postsendtxt(this.form.value).subscribe((data) => {
+      console.log(data);
+      this.router.navigateByUrl('List');
+    });
   }
+  onupdate() {
+    this.form.patchValue({
+      id: this.DiaryService.update[0].id,
+    });
+    console.log(this.form.value);
 
-  deletData(index : number) {
-    this.Data.splice(index,1)
+    this.DiaryService.postupdate(this.form.value).subscribe((data) => {
+      this.DiaryService.display = false;
+      this.router.navigateByUrl('');
+    });
   }
 }
