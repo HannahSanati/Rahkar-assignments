@@ -12,6 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './players-form.component.scss'
 })
 export class PlayersFormComponent {
+  
+  form :FormGroup;
+  Data : any[] = []
+
 onClick() {
   this.Data.push({
     firstPlayer : this.form.value.firstPlayer ,
@@ -22,8 +26,6 @@ onClick() {
     secondPlayer : '',
   })
 }
-  form :FormGroup;
-  Data : any[] = []
 
 constructor (private formBuilder: FormBuilder, private router: Router, private GameService: GameService, private fb:FormBuilder ){
   this.form = fb.group ({
