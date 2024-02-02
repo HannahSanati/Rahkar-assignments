@@ -1,8 +1,35 @@
-let item = [];
-let count = 1;
-exports.createTask = (req, res) => {
-  console.log(req.body);
-  const { itemName } = req.body;
-  item.push({ title: itemName.title , id : count++ , isDone : false});
-  res.json({ sucess: true, data: item });
-};
+const applyToTheDatabase=require('../model/taske.model')
+exports.adddata=async (req,res)=>{
+
+let re=await applyToTheDatabase.addDatabase(req.body)
+res.json('adddata:successfull')
+}
+exports.senddata=async (req,res)=>{
+    
+    let allData=await applyToTheDatabase.sendData()
+    res.json(allData)
+    }
+    exports.donedata=async (req,res)=>{
+        try {
+            await applyToTheDatabase.doneData(req.params.id)
+            res.json({message:'done:Success'})
+        } catch (error) {
+            
+        }
+    }
+        exports.deletdata=async (req,res)=>{
+
+                await applyToTheDatabase.deletData(req.params.id)
+                res.json({message:'delet:Success'})
+          
+            
+        }
+        exports.editedata=async (req,res)=>{
+
+            data=await applyToTheDatabase.editeData(req.params.id)
+            res.json(data) 
+    }
+    exports.updatedata=async (req,res)=>{
+        await applyToTheDatabase.updateData(req.body.title,req.params.id)
+        res.json({message:'Success'})
+}

@@ -1,20 +1,14 @@
-// Dependencies
-const express = require("express");
-const cors = require("cors");
+const express=require('express')
+const cors=require('cors')
+const router=require('./routes/taskroute')
+const app=express()
+ 
+app.use(cors())
+app.use(express.json())
 
-// Routes
-const taskRoutes = require("./routes/task.routes");
 
-// Global config
-const app = express();
-const PORT = 3333;
+app.use('/api',router)
 
-app.use(cors());
-app.use(express.json());
-
-// Register routes
-app.use("/api/create", taskRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+app.listen(4000,()=>{
+    console.log("Hello");
+})

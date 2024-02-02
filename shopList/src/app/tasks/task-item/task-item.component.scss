@@ -1,14 +1,23 @@
-.task-wrapper {
+.style{
+  width: 400px;
+  margin-left: 10px;
+}
+.buttons{
+  width: 70%;
+}
+.c{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content:start;
+}
+.bgcolor
+{
+  background: #6a11cb;
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+.text-decoration{
+  text-decoration: line-through;
+  text-decoration-color: aqua;
 
-  p {
-    margin: 0;
-  }
-
-  .actions {
-    display: flex;
-    column-gap: 4px;
-  }
 }

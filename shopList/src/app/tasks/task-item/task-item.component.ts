@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ITask } from '../typings/task.model';
+import { Itaskdata } from '../typings/taskesgetdata.model';
 
 @Component({
   selector: 'app-task-item',
@@ -10,7 +10,7 @@ import { ITask } from '../typings/task.model';
   styleUrl: './task-item.component.scss'
 })
 export class TaskItemComponent {
-  @Input() task!: ITask;
+  @Input() task!: Itaskdata;
   @Output() edited = new EventEmitter();
   @Output() deleted = new EventEmitter();
   @Output() done = new EventEmitter();
