@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class BudgetItem {\n  constructor(description, amount) {\n    this.description = description;\n    this.amount = amount;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
